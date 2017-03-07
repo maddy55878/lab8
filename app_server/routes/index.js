@@ -27,7 +27,7 @@ router
     .post(ctrlFood.foodAddOne);
 
 router
-  .route('/food/: foodId')
+  .route('/food/:name')
   .put(ctrlFood.foodUpdateOne)
   .delete(ctrlFood.foodDeleteOne)
   .get(ctrlFood.foodGetOne);

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Food = mongoose.model('Food');
 
+
 module.exports.foodGetAll = function(req, res) {
 
   console.log('Read All Food entries');
@@ -20,15 +21,15 @@ module.exports.foodGetAll = function(req, res) {
 
 module.exports.foodGetOne = function(req, res) {
   console.log('Read one food entry');
-  var id = req.params.foodId;
+  var name = req.params.name;
   console.log('req.params ', req.params);
-  console.log('GET foodId', id);
+  console.log('GET name', name);
 
   Food
-    .findById(id)
+    .find({ name: name })
     .exec(function(err, doc) {
       if (err) {
-        console.log("can't get food entry", id);
+        console.log("can't get food entry", name);
         res
           .status(400)
           .json(err);
